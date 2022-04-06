@@ -20,8 +20,6 @@
         'CP YTD LY Value',
       ]"
       :cols="[]"
-      layout="layout"
-      :tableColorScaleGenerator="colorScaleGenerator"
     >
       <!-- <template v-slot:rows><div class="p-1"></div> </template> -->
       <template v-slot:output v-if="!loaded">
@@ -53,10 +51,10 @@
         <colGroup class="colGroupSecond"></colGroup>
       </template>
     </vue-pivottable-ui>
-    <div class="m-1">
+    <!-- <div class="m-1">
       <label>colGroupFirstWidth: </label>
       <input v-model="colGroupFirstWidth" type="number" />
-    </div>
+    </div> -->
     <button
       class="btn btn-sm btn-secondary mt-1"
       :disabled="!loaded"
@@ -97,14 +95,6 @@ export default {
         this.loaded = true;
       }, 1000);
     },
-    // colorScaleGenerator(values) {
-    //   const scale = scaleLinear()
-    //     .domain([0, Math.max.apply(null, values)])
-    //     .range(["#fff", "#77f"]);
-    //   return (x) => {
-    //     return { "background-color": scale(x) };
-    //   };
-    // },
   },
   mounted() {
     this.reload();
@@ -117,30 +107,37 @@ export default {
 </script>
 <style scoped>
 .colGroupFirst {
-  background-color: #f6f6f6;
-  color: red;
-  font-family: "Montserrat", sans-serif;
+  /* background-color: #f6f6f6;
+  font-family: "Montserrat", sans-serif; */
 }
 .colGroupSecond {
-  font-family: "Montserrat", sans-serif !important;
+  /* font-family: "Montserrat", sans-serif !important; */
 }
 .pvtUi {
   table-layout: fixed;
   width: 100%;
   color: #000;
-  font-family: "Montserrat", sans-serif;
+  font-size: 10pt;
+  /* font-family: "Montserrat", sans-serif; */
   border-collapse: collapse;
 }
 table.pvtTable {
   font-size: 15pt;
   text-align: left;
   border-collapse: collapse;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
 }
 table.pvtTable thead tr th.pvtAxisLabel {
   background-color: #ebf8ec !important;
 }
 table.pvtTable tbody tr th.pvtAxisLabel {
   background-color: #f8edeb !important;
+}
+.pvtAttr2 {
+  /* border: 2px #c8d4e3 !important; */
+  background-color: #09ec2f !important;
+}
+.fa-filter {
+  margin-right: 10px;
 }
 </style>
