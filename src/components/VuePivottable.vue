@@ -21,6 +21,7 @@
       ]"
       :cols="[]"
       layout="layout"
+      :tableColorScaleGenerator="colorScaleGenerator"
     >
       <!-- <template v-slot:rows><div class="p-1"></div> </template> -->
       <template v-slot:output v-if="!loaded">
@@ -30,17 +31,26 @@
       </template>
       <template v-slot:aggregatorCell>
       </template> -->
-      <template v-slot:pvtAxisLabel>
+      <!-- <template v-slot:pvtAxisLabel>
         <pvtAxisLabel class="pvtAxisLabel" :color="textColor"></pvtAxisLabel>
-      </template>
-      <template v-slot:colGroup>
-        <colGroup class="colGroupFirst" :width="colGroupFirstWidth"></colGroup>
-        <colGroup class="colGroupSecond"></colGroup>
+      </template> -->
+      <template v-slot:pvtRowLabel>
+        <!-- <span class="apiFields">
+          {{ name }}
+        </span> -->
+        <pvtRowLabel>
+          <i class="fa fa-filter"></i>
+        </pvtRowLabel>
       </template>
       <template v-slot:pvtAttr="{ name }">
         <span class="apiFields">
           <i class="fa fa-filter"></i>{{ name.toLowerCase() }}
         </span>
+      </template>
+
+      <template v-slot:colGroup>
+        <colGroup class="colGroupFirst" :width="colGroupFirstWidth"></colGroup>
+        <colGroup class="colGroupSecond"></colGroup>
       </template>
     </vue-pivottable-ui>
     <div class="m-1">
@@ -97,10 +107,6 @@ export default {
 };
 </script>
 <style scoped>
-.pivot-table {
-  height: 100%;
-  width: 100%;
-}
 .colGroupFirst {
   background-color: #f6f6f6;
   color: red;
@@ -109,14 +115,21 @@ export default {
 .colGroupSecond {
   font-family: "Montserrat", sans-serif !important;
 }
-.textColor {
-}
 .apiFields {
   color: green;
 }
-/* add node_modules */
-.pvtAxisLabel {
-  background-color: red !important;
-  font-family: "Montserrat", sans-serif !important;
+.pvtUi {
+  table-layout: fixed;
+  width: 100%;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  border-collapse: collapse;
+}
+table.pvtTable thead tr th,
+table.pvtTable tbody tr th {
+  background-color: #f097f8;
+  border: 1px solid #c8d4e3;
+  font-size: 8pt;
+  padding: 5px;
 }
 </style>
