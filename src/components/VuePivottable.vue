@@ -71,6 +71,7 @@
 <script>
 import { VuePivottableUi } from "vue-pivottable";
 import "vue-pivottable/dist/vue-pivottable.css";
+// import { scaleLinear } from "d3-scale";
 export default {
   components: {
     VuePivottableUi,
@@ -96,6 +97,14 @@ export default {
         this.loaded = true;
       }, 1000);
     },
+    // colorScaleGenerator(values) {
+    //   const scale = scaleLinear()
+    //     .domain([0, Math.max.apply(null, values)])
+    //     .range(["#fff", "#77f"]);
+    //   return (x) => {
+    //     return { "background-color": scale(x) };
+    //   };
+    // },
   },
   mounted() {
     this.reload();
@@ -115,9 +124,6 @@ export default {
 .colGroupSecond {
   font-family: "Montserrat", sans-serif !important;
 }
-.apiFields {
-  color: green;
-}
 .pvtUi {
   table-layout: fixed;
   width: 100%;
@@ -125,11 +131,16 @@ export default {
   font-family: "Montserrat", sans-serif;
   border-collapse: collapse;
 }
-table.pvtTable thead tr th,
-table.pvtTable tbody tr th {
-  background-color: #f097f8;
-  border: 1px solid #c8d4e3;
-  font-size: 8pt;
-  padding: 5px;
+table.pvtTable {
+  font-size: 15pt;
+  text-align: left;
+  border-collapse: collapse;
+  font-family: "Montserrat", sans-serif;
+}
+table.pvtTable thead tr th.pvtAxisLabel {
+  background-color: #ebf8ec !important;
+}
+table.pvtTable tbody tr th.pvtAxisLabel {
+  background-color: #f8edeb !important;
 }
 </style>
