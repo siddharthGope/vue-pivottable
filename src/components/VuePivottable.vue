@@ -20,20 +20,27 @@
         'CP YTD LY Value',
       ]"
       :cols="[]"
+      layout="layout"
     >
+      <!-- <template v-slot:rows><div class="p-1"></div> </template> -->
       <template v-slot:output v-if="!loaded">
         <div class="p-1">loading...</div>
       </template>
-      <!-- <template v-slot:rendererCell>Table</template>
-      <template v-slot:aggregatorCell>Count</template> -->
+      <!-- <template v-slot:rendererCell>
+      </template>
+      <template v-slot:aggregatorCell>
+      </template> -->
+      <template v-slot:pvtAxisLabel>
+        <pvtAxisLabel class="pvtAxisLabel" :color="textColor"></pvtAxisLabel>
+      </template>
       <template v-slot:colGroup>
-        <colGroup :width="colGroupFirstWidth"></colGroup>
-        <colGroup></colGroup>
+        <colGroup class="colGroupFirst" :width="colGroupFirstWidth"></colGroup>
+        <colGroup class="colGroupSecond"></colGroup>
       </template>
       <template v-slot:pvtAttr="{ name }">
-        <i class="fa fa-filter"></i>
-        <!-- {{ name[0].toLowerCase() + name.substring(1) }} -->
-        {{ name.toLowerCase() }}
+        <span class="apiFields">
+          <i class="fa fa-filter"></i>{{ name.toLowerCase() }}
+        </span>
       </template>
     </vue-pivottable-ui>
     <div class="m-1">
@@ -63,6 +70,13 @@ export default {
       worksheet: [],
       colGroupFirstWidth: 350,
       loaded: false,
+      textColor: "blue",
+      layout: {
+        font: {
+          size: 20,
+          family: "Montserrat",
+        },
+      },
     };
   },
   methods: {
@@ -86,5 +100,23 @@ export default {
 .pivot-table {
   height: 100%;
   width: 100%;
+}
+.colGroupFirst {
+  background-color: #f6f6f6;
+  color: red;
+  font-family: "Montserrat", sans-serif;
+}
+.colGroupSecond {
+  font-family: "Montserrat", sans-serif !important;
+}
+.textColor {
+}
+.apiFields {
+  color: green;
+}
+/* add node_modules */
+.pvtAxisLabel {
+  background-color: red !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 </style>

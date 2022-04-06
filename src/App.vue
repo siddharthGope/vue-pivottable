@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <router-view />
   </div>
 </template>
@@ -13,3 +13,8 @@ export default {
   }),
 };
 </script>
+<style>
+.app {
+  font-family: "Montserrat", sans-serif;
+}
+</style>

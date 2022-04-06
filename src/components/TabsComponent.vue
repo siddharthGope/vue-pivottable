@@ -91,7 +91,7 @@
             </thead>
             <tbody>
               <tr v-for="item in filteredData" :key="item.id">
-                <FLM :flm="item.flm" :flmCode="item.flm_code" />
+                <FLM :flm="item.FLM" :flmCode="item.FLM_CODE" />
               </tr>
             </tbody>
           </table>
@@ -111,7 +111,7 @@
             </thead>
             <tbody>
               <tr v-for="item in filteredData" :key="item.id">
-                <SLM :slm="item.slm" :slmCode="item.slm_code" />
+                <SLM :slm="item.SLM" :slmCode="item.SLM_CODE" />
               </tr>
             </tbody>
           </table>
@@ -131,7 +131,7 @@
             </thead>
             <tbody>
               <tr v-for="item in filteredData" :key="item.id">
-                <SO :so="item.so" :soCode="item.so_code" />
+                <SO :so="item.SO" :soCode="item.SO_CODE" />
               </tr>
             </tbody>
           </table>
@@ -151,7 +151,7 @@
             </thead>
             <tbody>
               <tr v-for="item in filteredData" :key="item.id">
-                <TLM :tlm="item.tlm" :tlmCode="item.tlm_code" />
+                <TLM :tlm="item.TLM" :tlmCode="item.TLM_CODE" />
               </tr>
             </tbody>
           </table>
@@ -186,7 +186,7 @@ export default {
     filteredData: function () {
       return this.worksheet.filter((result) => {
         console.log(result);
-        return result.NSM.match(new RegExp(this.search, "i"));
+        return result.TLM.match(new RegExp(this.search, "i"));
       });
     },
   },

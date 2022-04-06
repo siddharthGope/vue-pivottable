@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import PivotTable from "../views/PivotTable.vue";
+import BootstrapTabs from "../views/BootstrapTabs.vue";
+import VuetifyTable from "../views/VuetifyTable.vue";
 
 Vue.use(VueRouter);
 
@@ -11,13 +14,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/pivot-table",
+    name: "pivot-table",
+    component: PivotTable,
+  },
+  {
+    path: "/bootstrap-tabs",
+    name: "bootstrap-tabs",
+    component: BootstrapTabs,
+  },
+  {
+    path: "/vuetify-table",
+    name: "vuetify-table",
+    component: VuetifyTable,
   },
 ];
 

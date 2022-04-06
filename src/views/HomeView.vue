@@ -1,20 +1,16 @@
 <template>
   <div class="home">
-    <!-- <TabsComponent /> -->
-    <VuePivottable />
+    <router-link to="/pivot-table"> Pivottable </router-link>
+    <router-link to="/bootstrap-tabs"> Bootstrap Tabs </router-link>
+    <router-link to="/vuetify-table"> Vuetify Table </router-link>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// // import TabsComponent from "@/components/TabsComponent.vue";
-import VuePivottable from "@/components/VuePivottable.vue";
 
 export default {
   name: "HomeView",
-  components: {
-    VuePivottable,
-    // TabsComponent,
-  },
+  components: {},
 };
 </script>
